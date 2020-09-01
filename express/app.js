@@ -1,3 +1,4 @@
+/* eslint-disable */
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -21,6 +22,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.router.get('/hoge', (req, res) => {
+  res.json({
+    name: "hoge"
+  })
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
